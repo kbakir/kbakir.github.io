@@ -11,7 +11,7 @@ document.getElementById('mortgageForm').addEventListener('submit', function(e) {
         loanTerm: loanTerm
     };
 
-    fetch('https://your-backend-api-url/calculate', {
+    fetch('https://mortgagecalc-qsqq.onrender.com/calculate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
