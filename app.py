@@ -1,9 +1,10 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Import CORS
+from flask_cors import CORS  # Import Flask-CORS to handle CORS issues
 import math
 
 app = Flask(__name__)
-CORS(app)  # This will enable CORS for all routes
+CORS(app, resources={r"/*": {"origins": "https://kbakir.github.io"}})
+
 
 @app.route('/calculate', methods=['POST'])
 def calculate_mortgage():
