@@ -11,14 +11,25 @@ document.getElementById('mortgageForm').addEventListener('submit', function(e) {
         loanTerm: loanTerm
     };
 
+    console.log('Submitting data:', data);
+
     fetch('https://mortgagecalc-qsqq.onrender.com/calculate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
     .then(result => {
+        console.log('Result from server:', result);
         document.getElementById('result').innerHTML = `Monthly Payment: $${result.monthlyPayment}`;
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('result').innerHTML = 'Error calculating the mortgage payment. Please try again.';
+    });
 });
