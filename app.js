@@ -1,10 +1,10 @@
 document.getElementById('mortgageForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    
+
     let loanAmount = document.getElementById('loanAmount').value;
     let interestRate = document.getElementById('interestRate').value;
     let loanTerm = document.getElementById('loanTerm').value;
-    
+
     let data = {
         loanAmount: loanAmount,
         interestRate: interestRate,
