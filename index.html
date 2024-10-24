@@ -27,6 +27,7 @@
             color: white; 
             border: none; 
             cursor: pointer; 
+            margin-right: 10px;
         }
         h1 { 
             text-align: center; 
@@ -42,15 +43,16 @@
     <h1>Mortgage Payment Calculator</h1>
     <form id="mortgageForm">
         <label for="loanAmount">Loan Amount ($):</label>
-        <input type="number" id="loanAmount" name="loanAmount" required>
+        <input type="number" id="loanAmount" name="loanAmount" placeholder="Enter loan amount" min="0" required aria-label="Loan Amount">
 
         <label for="interestRate">Annual Interest Rate (%):</label>
-        <input type="number" id="interestRate" name="interestRate" step="0.01" required>
+        <input type="number" id="interestRate" name="interestRate" step="0.01" placeholder="Enter interest rate" min="0" required aria-label="Interest Rate">
 
         <label for="loanTerm">Loan Term (Years):</label>
-        <input type="number" id="loanTerm" name="loanTerm" required>
+        <input type="number" id="loanTerm" name="loanTerm" placeholder="Enter loan term" min="0" required aria-label="Loan Term">
 
         <button type="submit">Calculate</button>
+        <button type="reset">Reset</button>
     </form>
 
     <div id="result"></div>
